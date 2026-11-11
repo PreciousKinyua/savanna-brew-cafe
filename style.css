@@ -1,0 +1,231 @@
+/* ==========================================================
+   Savanna Brew Café - main stylesheet (linked from every page)
+   Sections:
+   1. Variables   2. Base   3. Header & navigation   4. Buttons
+   5. Home        6. About  7. Menu tables           8. Gallery
+   9. Contact    10. Footer 11. Utilities 12. Dark mode
+   13. Responsive (768px and below)
+   ========================================================== */
+
+/* ---------- 1. VARIABLES (brand palette) ---------- */
+:root {
+  --primary: #6F4E37;      /* coffee brown */
+  --secondary: #F5E9DA;    /* cream */
+  --accent: #D9822B;       /* savanna orange */
+  --text: #2B1B12;         /* dark text */
+  --white: #FFFFFF;
+  --page-bg: #FFFAF4;
+  --surface: #FFFFFF;      /* cards, forms, tables */
+  --stripe: #FBF1E6;       /* zebra rows */
+  --hover-row: #F6DFC5;
+  --border: #EADBCB;
+  --muted: #6B5B50;
+  --footer-bg: #24170F;
+  --shadow: 0 12px 30px rgba(43, 27, 18, 0.12);
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Open Sans", Arial, sans-serif;
+}
+
+/* ---------- 2. BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;          /* 16px */
+  line-height: 1.65;
+}
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 { font-family: var(--font-heading); line-height: 1.2; margin-top: 0; }
+h1 { font-size: clamp(2.2rem, 5vw, 4rem); }
+h2 { font-size: 2rem; }
+p { margin-top: 0; }
+a { color: var(--primary); }
+a:hover { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.container { width: min(1120px, 92%); margin-inline: auto; }
+.section { padding: 70px 0; }
+.section-heading { text-align: center; max-width: 680px; margin: 0 auto 36px; }
+.section-heading p { color: var(--muted); }
+.eyebrow {
+  color: #F4BD7C; text-transform: uppercase; letter-spacing: 3px;
+  font-weight: 700; font-size: 0.85rem; margin-bottom: 8px;
+}
+.eyebrow-dark { color: var(--primary); }
+.page-title { padding: 60px 4%; text-align: center; background: var(--secondary); }
+.page-title h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); margin-bottom: 10px; }
+.page-title p { margin: 0; color: var(--muted); }
+
+/* ---------- 3. HEADER & NAVIGATION ---------- */
+/* Flexbox is used for the navigation bar (one row, logo left, links right);
+   CSS Grid is used for the gallery (a two-dimensional grid of photos). */
+.site-header { background: var(--white); box-shadow: 0 3px 18px rgba(43, 27, 18, 0.08); }
+.header-inner {
+  width: min(1180px, 92%); margin: auto; min-height: 90px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.logo-link img { width: 230px; height: auto; }
+.main-nav ul { display: flex; align-items: center; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.main-nav a {
+  display: block; padding: 10px 16px; border-radius: 999px;
+  text-decoration: none; color: #2B1B12; font-weight: 700;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.main-nav a:hover, .main-nav a:focus-visible { background: var(--secondary); color: var(--primary); }
+.main-nav a.active { background: var(--primary); color: var(--white); }   /* current page */
+.skip-link { position: absolute; left: -999px; top: 0; background: var(--accent); color: #21140D; padding: 8px 14px; z-index: 10; }
+.skip-link:focus { left: 8px; }
+
+/* ---------- 4. BUTTONS ---------- */
+.btn {
+  display: inline-block; background: var(--accent); color: #21140D;
+  font: 700 1rem var(--font-body); text-decoration: none;
+  padding: 13px 26px; border: 0; border-radius: 999px; cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.btn:hover, .btn:focus-visible {
+  background: #EFA64E; color: #21140D; transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- 5. HOME ---------- */
+.hero {
+  min-height: 580px; display: flex; align-items: center; color: var(--white);
+  background: linear-gradient(90deg, rgba(25, 15, 10, 0.85), rgba(25, 15, 10, 0.25)),
+              url("../images/hero.jpg") center / cover no-repeat;
+}
+.hero-content { width: min(1120px, 92%); margin: auto; padding: 80px 0; animation: fade-up 1s ease both; }
+.hero h1 { max-width: 640px; margin-bottom: 18px; }
+.hero p { max-width: 580px; font-size: 1.15rem; color: #FFF5E9; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.card-row { display: flex; gap: 24px; }
+.card {
+  flex: 1; background: var(--surface); border-radius: 18px; overflow: hidden;
+  box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover { transform: translateY(-8px); box-shadow: 0 18px 35px rgba(43, 27, 18, 0.2); }
+.card img { width: 100%; height: 220px; object-fit: cover; }
+.card-body { padding: 22px; }
+.card h3 { margin-bottom: 4px; }
+.price { font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+.center { text-align: center; margin-top: 36px; }
+
+/* ---------- 6. ABOUT ---------- */
+.story-layout { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 54px; align-items: center; }
+.owner-image { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 28px; box-shadow: var(--shadow); }
+.story-copy blockquote {
+  margin: 28px 0 0; padding: 16px 24px; background: var(--secondary);
+  border-left: 5px solid var(--accent); font-family: Georgia, serif; font-size: 1.15rem; font-style: italic;
+}
+.story-copy blockquote p { margin-bottom: 8px; }
+.story-copy blockquote footer { font: 600 0.95rem var(--font-body); font-style: normal; color: var(--primary); }
+.values-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.values-list li {
+  padding: 28px; background: var(--surface); border-radius: 16px;
+  border-top: 4px solid var(--accent); box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+.values-list li:hover { transform: translateY(-5px); }
+.values-list strong { display: block; font: 700 1.4rem var(--font-heading); color: var(--primary); margin-bottom: 6px; }
+
+/* ---------- 7. MENU TABLES ---------- */
+.menu-section { padding: 28px 0 10px; }
+.menu-section h2 { margin-bottom: 16px; }
+.table-wrapper { overflow-x: auto; border-radius: 12px; box-shadow: var(--shadow); }   /* scrolls on phones */
+.menu-table { width: 100%; border-collapse: collapse; min-width: 520px; background: var(--surface); }
+.menu-table th, .menu-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border); }
+.menu-table thead th { background: var(--primary); color: var(--white); }
+.menu-table tbody th { font-weight: 700; }
+.menu-table tbody tr:nth-child(even) { background: var(--stripe); }
+.menu-table tbody tr { transition: background-color 0.2s ease; }
+.menu-table tbody tr:hover { background: var(--hover-row); }
+.menu-table th:last-child, .menu-table td:last-child { text-align: right; }          /* prices */
+.menu-table td:last-child { font-weight: 700; }
+
+/* ---------- 8. GALLERY (CSS Grid: 4 / 2 / 1 columns) ---------- */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.gallery-grid figure { margin: 0; overflow: hidden; border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); }
+.gallery-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform 0.4s ease; }
+.gallery-grid figure:hover img { transform: scale(1.08); }
+.gallery-grid figcaption { padding: 12px 14px; font-weight: 600; text-align: center; }
+
+/* ---------- 9. CONTACT ---------- */
+.contact-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: start; }
+.contact-panel, .reservation-form { background: var(--surface); padding: 30px; border-radius: 18px; box-shadow: var(--shadow); }
+.contact-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.contact-item strong { display: block; color: var(--primary); }
+.hours-heading { margin-top: 26px; font-size: 1.6rem; }
+.hours-table { width: 100%; border-collapse: collapse; }
+.hours-table th, .hours-table td { padding: 9px 4px; text-align: left; border-bottom: 1px solid var(--border); }
+.hours-table thead th { color: var(--primary); }
+.hours-table td { text-align: right; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field.full { grid-column: 1 / -1; }
+.form-field label, legend { font-weight: 700; }
+.form-field input[type="text"], .form-field input[type="email"], .form-field input[type="tel"],
+.form-field input[type="date"], .form-field input[type="time"], .form-field select, .form-field textarea {
+  width: 100%; padding: 12px; border: 1px solid #B9A593; border-radius: 8px;
+  background: var(--surface); color: var(--text); font: inherit;
+}
+.form-field textarea { min-height: 120px; resize: vertical; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+  outline: 3px solid var(--accent); outline-offset: 1px; border-color: var(--accent);
+}
+fieldset { border: 1px solid #B9A593; border-radius: 10px; padding: 12px 16px; margin: 0; }
+.radio-row { display: flex; gap: 20px; flex-wrap: wrap; }
+.radio-row label { font-weight: 400; }
+.form-help { font-size: 0.95rem; color: var(--muted); }
+
+/* ---------- 10. FOOTER ---------- */
+.site-footer { background: var(--footer-bg); color: #F1E6DA; padding: 46px 0 18px; }
+.footer-grid { width: min(1120px, 92%); margin: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.site-footer h2 { font-size: 1.3rem; color: #F0BD83; }
+.site-footer address { font-style: normal; }
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer a { color: #F4C58F; }
+.site-footer a:hover, .site-footer a:focus-visible { color: var(--white); }
+.copyright { width: min(1120px, 92%); margin: 30px auto 0; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.2); text-align: center; font-size: 0.95rem; color: #D8C8B8; }
+
+/* ---------- 11. UTILITIES ---------- */
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- 12. DARK MODE (bonus) ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-bg: #1A110C; --surface: #2A1C14; --stripe: #33231A; --hover-row: #45301F;
+    --secondary: #33231A; --border: #4A362A; --text: #F5E9DA; --muted: #CDBBA9;
+  }
+  a { color: #F4C58F; }
+  .main-nav a:hover, .main-nav a:focus-visible { color: #F4C58F; }
+  .site-header { background: #24170F; }
+  .main-nav a { color: #F5E9DA; }
+  .main-nav a.active { background: var(--accent); color: #21140D; }
+  .logo-link img { background: #F5E9DA; border-radius: 10px; padding: 4px 8px; }
+  .eyebrow-dark, .price, .values-list strong, .contact-item strong, .hours-table thead th, .story-copy blockquote footer { color: #F4C58F; }
+  .menu-table thead th { background: #6F4E37; }
+}
+
+/* ---------- 13. RESPONSIVE: 768px and below ---------- */
+@media (max-width: 1000px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }      /* tablet: 2 columns */
+}
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; padding: 14px 0; gap: 8px; }   /* links stack below logo */
+  .main-nav ul { flex-direction: column; gap: 2px; text-align: center; }
+  .main-nav a { padding: 8px 24px; }
+  .hero { min-height: 500px; }
+  .hero-content { padding: 60px 0; }
+  .section { padding: 50px 0; }
+  .card-row { flex-direction: column; }
+  .story-layout, .contact-layout { grid-template-columns: 1fr; gap: 32px; }
+  .owner-image { max-width: 420px; margin-inline: auto; }
+  .values-list { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }                  /* mobile: 1 column */
+  .footer-grid { grid-template-columns: 1fr; gap: 22px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-field.full { grid-column: auto; }
+  .contact-panel, .reservation-form { padding: 22px; }
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find Savanna Brew Café, see our opening hours and reserve a table or send an enquiry.">
+  <title>Contact &amp; Reservations | Savanna Brew Café</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo-link" href="index.html"><img src="images/logo.png" alt="Savanna Brew Café logo - a steaming coffee cup" width="304" height="78"></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-title">
+      <h1>Contact &amp; Reservations</h1>
+      <p>We would love to welcome you. Send an enquiry or request a table.</p>
+    </section>
+
+    <section class="section container contact-layout">
+      <form class="reservation-form" action="mailto:hello@savannabrew.example" method="post" enctype="text/plain">
+        <h2>Make a Reservation</h2>
+        <p class="form-help">Fields marked * are required. Your booking is confirmed only after the café replies.</p>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Full name *</label>
+            <input id="name" name="Name" type="text" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email address *</label>
+            <input id="email" name="Email" type="email" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="Phone" type="tel" autocomplete="tel" placeholder="+254 7XX XXX XXX">
+          </div>
+          <div class="form-field">
+            <label for="guests">Number of guests</label>
+            <select id="guests" name="Guests">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="date">Date *</label>
+            <input id="date" name="Date" type="date" required>
+          </div>
+          <div class="form-field">
+            <label for="time">Time *</label>
+            <input id="time" name="Time" type="time" required>
+          </div>
+          <div class="form-field full">
+            <fieldset>
+              <legend>Occasion</legend>
+              <div class="radio-row">
+                <label for="occ-casual"><input id="occ-casual" type="radio" name="Occasion" value="Casual" checked> Casual</label>
+                <label for="occ-birthday"><input id="occ-birthday" type="radio" name="Occasion" value="Birthday"> Birthday</label>
+                <label for="occ-business"><input id="occ-business" type="radio" name="Occasion" value="Business"> Business</label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="form-field full">
+            <label for="requests">Special requests or enquiry</label>
+            <textarea id="requests" name="Special requests" placeholder="Dietary needs, seating preferences or your question..."></textarea>
+          </div>
+          <div class="form-field full">
+            <button class="btn" type="submit">Send Reservation Request</button>
+          </div>
+        </div>
+      </form>
+
+      <aside class="contact-panel">
+        <h2>Find Us</h2>
+        <div class="contact-item"><strong>Address</strong>14 Coffee Lane, Westlands, Nairobi</div>
+        <div class="contact-item"><strong>Phone</strong><a href="tel:+254700123456">+254 700 123 456</a></div>
+        <div class="contact-item"><strong>Email</strong><a href="mailto:hello@savannabrew.example">hello@savannabrew.example</a></div>
+        <div class="contact-item"><strong>Social</strong>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram @savannabrew</a><br>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook /savannabrewcafe</a>
+        </div>
+        <h2 class="hours-heading">Opening Hours</h2>
+        <table class="hours-table">
+          <caption class="visually-hidden">Opening hours</caption>
+          <thead>
+            <tr><th scope="col">Day</th><th scope="col">Hours</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Monday to Friday</th><td>7:00 AM to 9:00 PM</td></tr>
+            <tr><th scope="row">Saturday</th><td>8:00 AM to 10:00 PM</td></tr>
+            <tr><th scope="row">Sunday</th><td>9:00 AM to 6:00 PM</td></tr>
+          </tbody>
+        </table>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <section>
+        <h2>Visit Us</h2>
+        <address>
+          14 Coffee Lane, Westlands, Nairobi<br>
+          <a href="tel:+254700123456">+254 700 123 456</a><br>
+          <a href="mailto:hello@savannabrew.example">hello@savannabrew.example</a>
+        </address>
+      </section>
+      <section>
+        <h2>Opening Hours</h2>
+        <p>Mon–Fri: 7:00 AM – 9:00 PM<br>Saturday: 8:00 AM – 10:00 PM<br>Sunday: 9:00 AM – 6:00 PM</p>
+      </section>
+      <section>
+        <h2>Follow Us</h2>
+        <ul>
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram @savannabrew</a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook /savannabrewcafe</a></li>
+        </ul>
+      </section>
+    </div>
+    <p class="copyright">© 2026 Savanna Brew Café. All rights reserved.</p>
+  </footer>
+</body>
+</html>
