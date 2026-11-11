@@ -93,8 +93,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
 /* ---------- 5. HOME ---------- */
 .hero {
   min-height: 580px; display: flex; align-items: center; color: var(--white);
-  background: linear-gradient(90deg, rgba(25, 15, 10, 0.85), rgba(25, 15, 10, 0.25)),
-              url("../images/hero.jpg") center / cover no-repeat;
+    background: linear-gradient(90deg, rgba(25, 15, 10, 0.85), rgba(25, 15, 10, 0.25)),
+              url("images/hero.jpg") center / cover no-repeat;
 }
 .hero-content { width: min(1120px, 92%); margin: auto; padding: 80px 0; animation: fade-up 1s ease both; }
 .hero h1 { max-width: 640px; margin-bottom: 18px; }
